@@ -47,15 +47,18 @@ class Formatter
      *
      * @return string A formatted string according to the Currency Config properties
      */
-    public static function format($number, $format_key = self::DEFAULT_KEY, array $config_overrides = [])
-    {
+    public static function format(
+        $number,
+        $format_key = self::DEFAULT_KEY,
+        array $config_overrides = []
+    ) {
         $config = self::getFormatConfig($format_key, $config_overrides);
 
         $symbol = self::handleSymbol($config);
         $number = self::handleNumber($number, $config);
         $label = self::handleLabel($config);
 
-        return self::handleFormat($symbol, $number, $label);
+        return self::handleFormat($symbol, $number, $label, $config->prepend_symbol);
     }
 
     /**
@@ -124,11 +127,16 @@ class Formatter
      * @param string $symbol
      * @param number $number
      * @param string $label
+     * @param bool $prepend_symbol
      *
      * @return string A formatted string
      */
-    protected static function handleFormat($symbol, $number, $label)
+    protected static function handleFormat($symbol, $number, $label, $prepend_symbol = false)
     {
+        if (!$prepend_symbol) {
+            return sprintf('%s%s%s', $number, $symbol, $label);
+        }
+
         return sprintf('%s%s%s', $symbol, $number, $label);
     }
 }
