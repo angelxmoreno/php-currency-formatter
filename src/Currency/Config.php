@@ -66,6 +66,7 @@ class Config
     {
         $defaults = [
             'currency_symbol' => '$',
+            'currency_code' => 'USD',
             'decimal_spaces' => 2,
             'decimal_separator' => '.',
             'thousand_separator' => ',',
@@ -75,12 +76,13 @@ class Config
         $config = array_merge($defaults, $config_array);
 
         $this->iso_code = strtoupper($iso_code);
+        $this->currency_code = $config['currency_code'];
         $this->currency_symbol = $config['currency_symbol'];
         $this->decimal_spaces = $config['decimal_spaces'];
         $this->decimal_separator = $config['decimal_separator'];
         $this->thousand_separator = $config['thousand_separator'];
         $this->label = is_null($config['label'])
-            ? $this->iso_code
+            ? $this->currency_code
             : $config['label'];
         $this->prepend_symbol = $config['prepend_symbol'];
     }
@@ -109,6 +111,7 @@ class Config
         return [
             'iso_code' => $this->iso_code,
             'currency_symbol' => $this->currency_symbol,
+            'currency_code' => $this->currency_code,
             'decimal_spaces' => $this->decimal_spaces,
             'decimal_separator' => $this->decimal_separator,
             'thousand_separator' => $this->thousand_separator,
@@ -123,6 +126,14 @@ class Config
     public function getIsoCode()
     {
         return $this->iso_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrencyCode()
+    {
+        return $this->currency_code;
     }
 
     /**

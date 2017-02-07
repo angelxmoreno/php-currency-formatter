@@ -34,7 +34,7 @@ describe(Formatter::class, function () {
             $formatter = $this->formatter;
 
             $actual = $formatter::format('1234.56');
-            $expected = '$1,234.56 USD';
+            $expected = '£1.234,56 GBP';
 
             expect($actual)->toBe($expected);
         });
@@ -44,7 +44,7 @@ describe(Formatter::class, function () {
             $formatter = $this->formatter;
 
             $actual = $formatter::format(1234.56);
-            $expected = '$1,234.56 USD';
+            $expected = '£1.234,56 GBP';
 
             expect($actual)->toBe($expected);
         });
@@ -75,7 +75,7 @@ describe(Formatter::class, function () {
             /** @var Formatter $formatter */
             $formatter = $this->formatter;
 
-            $actual = $formatter::format('1234.56', 'CLP', [
+            $actual = $formatter::format('1234.56', 'CHL', [
                 'currency_symbol' => '!@#',
                 'decimal_spaces' => 4,
                 'decimal_separator' => ',,',
