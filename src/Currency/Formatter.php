@@ -6,7 +6,7 @@ class Formatter
     /**
      * The default key/iso code to use
      */
-    const DEFAULT_KEY = 'USD';
+    const DEFAULT_KEY = 'GBR';
 
     /**
      * @var Collection
@@ -71,7 +71,8 @@ class Formatter
     {
         $key = self::$collection->hasKey(strtoupper($format_key))
             ? strtoupper($format_key)
-            : self::$default_format_key;
+            : self::DEFAULT_KEY;
+
         return self::$collection->get($key, $config_overrides);
     }
 
@@ -98,7 +99,7 @@ class Formatter
     protected static function handleNumber($number, Config $config)
     {
         return number_format(
-            $number,
+            (double) $number,
             $config->getDecimalSpaces(),
             $config->getDecimalSeparator(),
             $config->getThousandSeparator()

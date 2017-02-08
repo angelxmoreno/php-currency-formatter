@@ -1,7 +1,8 @@
 [
   {
-    "iso_code": "USD",
+    "iso_code": "USA",
     "currency_symbol": "$",
+    "currency_code": "USD",
     "decimal_spaces": 2,
     "decimal_separator": ".",
     "thousand_separator": ",",
@@ -10,8 +11,9 @@
     "prepend_symbol": true
   },
   {
-    "iso_code": "GBP",
+    "iso_code": "GBR",
     "currency_symbol": "£",
+    "currency_code": "GBP",
     "decimal_spaces": 2,
     "decimal_separator": ",",
     "thousand_separator": ".",
@@ -20,8 +22,9 @@
     "prepend_symbol": true
   },
   {
-    "iso_code": "CLP",
+    "iso_code": "CHL",
     "currency_symbol": "$",
+    "currency_code": "CLP",
     "decimal_spaces": 0,
     "decimal_separator": ",",
     "thousand_separator": ".",
@@ -32,6 +35,7 @@
   {
     "iso_code":"FRA",
     "currency_symbol":"€",
+    "currency_code": "EUR",
     "decimal_spaces":2,
     "decimal_separator":",",
     "thousand_separator":".",
